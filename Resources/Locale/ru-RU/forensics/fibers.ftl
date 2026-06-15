@@ -23,6 +23,7 @@ fibers-green = зелёные
 fibers-orange = оранжевые
 fibers-white = белые
 fibers-yellow = жёлтые
+fibers-regal-red = королевские красные
 fibers-regal-blue = королевские синие
 fibers-olive = оливковые
 fibers-silver = серебряные
