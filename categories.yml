@@ -1,0 +1,113 @@
+#- type: copierCategory
+#  id: ID категории
+#  name: "Имя категории"
+#  documents:
+#  - ID документа из файла printed_documents
+
+- type: copierCategory
+  id: CopierCatCargo
+  name: "Снабжение"
+  documents:
+  - PrintedDocumentDisposalReport
+  - PrintedDocumentOrderingSpecialEquipment
+  - PrintedDocumentOrderPurchaseResourcesEquipment
+  - PrintedDocumentOrderPurchaseWeapons
+
+- type: copierCategory
+  id: CopierCatPolice
+  name: "Милиция"
+  documents:
+  - PrintedDocumentJudgment
+  - PrintedDocumentDecisionToStartTrial
+  - PrintedDocumentSearchPermission
+  - PrintedDocumentPermissionToCarryWeapons
+  - PrintedDocumentOrderParolePrisoner
+  - PrintedDocumentSentence
+  - PrintedDocumentInternalAffairsAgentsReport
+  - PrintedDocumentClosingIndictment
+  - PrintedDocumentRequestDocuments
+  - PrintedDocumentOrderPurchaseWeapons
+  - PrintedDocumentComplaintOffense
+  - PrintedDocumentComplaintViolationLaborRules
+
+- type: copierCategory
+  id: CopierCatRND
+  name: "Научный отдел"
+  documents:
+  - PrintedDocumentOrderRecognizingSentienceCreature
+  - PrintedDocumentExperimentReport
+  - PrintedDocumentReportStudyObject
+  - PrintedDocumentRequestModernization
+
+- type: copierCategory
+  id: CopierCatMed
+  name: "Медицинский отдел"
+  documents:
+  - PrintedDocumentOrderMedicalIntervention
+  - PrintedDocumentPermissionDisposeBody
+  - PrintedDocumentRequestEuthanasia
+  - PrintedDocumentStatementHealth
+
+- type: copierCategory
+  id: CopierCatEng
+  name: "Инженерный отдел"
+  documents:
+  - PrintedDocumentConstructionPermit
+  - PrintedDocumentConditionReport
+  - PrintedDocumentRequestConstructionWork
+
+- type: copierCategory
+  id: CopierCatService
+  name: "Сервис"
+  documents:
+  - PrintedDocumentDivorceCertificate
+  - PrintedDocumentMarriageCertificate
+  - PrintedDocumentPermissionToExtendMarriage
+
+- type: copierCategory
+  id: CopierCatCommand
+  name: "Командование"
+  documents:
+  - PrintedDocumentCertificateAdvancedTraining
+  - PrintedDocumentPermissionToTravelInCaseOfThreat
+  - PrintedDocumentPermissionEquipment
+  - PrintedDocumentOrderDeprivationAccess
+  - PrintedDocumentReportOnEliminationOfViolations
+  - PrintedDocumentReportStudyObject
+  - PrintedDocumentReportOnTheChaptersMeeting
+  - PrintedDocumentReportStation
+  - PrintedDocumentReportEmployeePerformance
+  - PrintedDocumentReporDepartment
+  - PrintedDocumentAppeal
+  - PrintedDocumentLetterResignation
+  - PrintedDocumentApplicationEmployment
+  - PrintedDocumentApplicationAppointmentInterim
+  - PrintedDocumentApplicationEquipment
+  - PrintedDocumentApplicationAccess
+  - PrintedDocumentEvacuationShuttleRequest
+  - PrintedDocumentRequestDocuments
+  - PrintedDocumentRequestForPromotion
+  - PrintedDocumentRequestChangeSalary
+  - PrintedDocumentRequestForNonlistedEmployment
+  - PrintedDocumentProductManufacturingOrder
+  - PrintedDocumentCertificate
+
+- type: copierCategory
+  id: CopierCatGS
+  name: "Генштаб"
+  documents:
+  - PrintedDocumentReportOnTheChaptersMeeting
+  - PrintedDocumentReportStation
+  - PrintedDocumentReporDepartment
+  - PrintedDocumentInternalAffairsAgentsReport
+  - PrintedDocumentAppeal
+  - PrintedDocumentApplicationAppointmentInterim
+  - PrintedDocumentEvacuationShuttleRequest
+  - PrintedDocumentRequestRequestToEstablishThreatLevel
+  - PrintedDocumentShuttleRegistrationRequest
+  - PrintedDocumentRequestForPromotion
+  - PrintedDocumentRequestChangeSalary
+  - PrintedDocumentRequestCallMembersCentralCommitteeDSO
+  - PrintedDocumentRequestForNonlistedEmployment
+  - PrintedDocumentOrderingSpecialEquipment
+  - PrintedDocumentCertificate

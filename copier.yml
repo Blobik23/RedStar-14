@@ -1,0 +1,61 @@
+- type: entity
+  id: CopierMachine
+  name: копировальный аппарат
+  description: Копирует документы и печатает шаблоны.
+  parent: BaseMachinePowered
+  components:
+  - type: Copier
+    maxTonerAmount: 25
+    tonerAmount: 25
+    availableCategories:
+    - CopierCatCargo
+    - CopierCatPolice
+    - CopierCatRND
+    - CopierCatMed
+    - CopierCatService
+    - CopierCatEng
+    - CopierCatCommand
+    - CopierCatGS
+#   - id категории
+  - type: Sprite
+    sprite: _RedStar/Structures/Machines/copier.rsi
+    layers:
+    - state: icon
+      map: ["enum.CopierVisualLayers.Working"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CopierVisualLayers.Working:
+        enum.CopierVisualLayers.Working:
+          True: { state: working }
+          False: { state: icon }
+  - type: ItemSlots
+    slots:
+      PaperSlot:
+        whitelist:
+          components:
+          - Paper
+  - type: ContainerContainer
+    containers:
+      PaperSlot: !type:ContainerSlot
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: ActivatableUI
+    key: enum.CopierUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.CopierUiKey.Key:
+        type: CopierBoundUserInterface

@@ -1,0 +1,7 @@
+#- type: entity
+#  parent: PrintedDocument
+#  id: ID для документа
+#  name: Имя документа
+#  components:
+#  - type: Paper
+#    content: FTL до вашего документа или текст

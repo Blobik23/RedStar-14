@@ -1,0 +1,12 @@
+copier-toner-full = Тонер уже полон!
+copier-toner-added = Тонер добавлен.
+copier-paper-already-inserted = Бумага уже вставлена.
+copier-paper-inserted = Бумага вставлена.
+copier-template-not-found = Шаблон не найден.
+copier-no-paper-inserted = Нет вставленной бумаги.
+copier-empty-document = Документ пуст.
+copier-no-toner = Недостаточно тонера!
+copier-cooldown = Подождите {$seconds} сек.
+copier-printing-complete = Напечатано {$count} шт.
+copier-no-power = Нет электричества!
+copier-no-paper-in-hands = Нет бумаги в руках!
