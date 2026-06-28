@@ -17,6 +17,7 @@
     rules: ghost-role-information-silicon-rules
     mindRoles:
     - MindRoleGhostRoleSilicon
+    - MindRoleGhostRoleSoloAntagonistBorgGoob
     raffle:
       settings: default
   - type: Sprite
@@ -38,6 +39,7 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistPassengerGoob
     raffle:
       settings: default
   - type: Sprite
@@ -59,6 +61,7 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistClownGoob
     raffle:
       settings: default
   - type: Sprite
@@ -82,7 +85,7 @@
     - Engineering
     - Piloting
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentEngineeringGoob
     raffle:
       settings: default
   - type: Sprite
@@ -105,7 +108,7 @@
     skills: # RS14
     - Shooting
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleFreeAgentSecurityGoob
     raffle:
       settings: default
   - type: Sprite
@@ -128,7 +131,8 @@
     rules: ghost-role-information-antagonist-rules
     grantAllSkills: true # RS14
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleSoloAntagonistMimeGoob
     raffle:
       settings: default
   - type: Sprite
@@ -150,6 +154,7 @@
     rules: ghost-role-information-nonantagonist-rules
     mindRoles:
     - MindRoleGhostRoleNeutral
+    - MindRoleGhostRoleFreeAgentSecurityGoob
     raffle:
       settings: default
   - type: Sprite
@@ -171,6 +176,7 @@
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentSecurityGoob
     raffle:
       settings: default
   - type: Sprite
@@ -193,6 +199,7 @@
     grantAllSkills: true # RS14
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFreeAgentSecurityGoob
     raffle:
       settings: default
   - type: Sprite

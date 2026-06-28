@@ -320,6 +320,8 @@
   parent: BaseNukeopsRule
   id: Honkops
   components:
+  - type: GameRule
+    minPlayers: 20
   - type: RandomMetadata # this generates the random operation name cuz it's cool.
     nameSegments:
     - OperationPrefixHonkops
@@ -336,9 +338,13 @@
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFullHonkops
+      chaosScore: 300
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
+      - type: SleepEmitSound
+        snore: /Audio/Voice/Misc/silly_snore.ogg
+        interval: 10
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -358,6 +364,9 @@
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
+      - type: SleepEmitSound
+        snore: /Audio/Voice/Misc/silly_snore.ogg
+        interval: 10
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -381,6 +390,9 @@
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
+      - type: SleepEmitSound
+        snore: /Audio/Voice/Misc/silly_snore.ogg
+        interval: 10
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:

@@ -8,19 +8,27 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client.UserInterface.Fragments;
+using Content.Client.UserInterface;
 using Content.Shared.Mech;
-using Content.Shared.Mech.Components;
+using Content.Shared.Mech.Module.Components;
 using JetBrains.Annotations;
+using Robust.Client.Timing;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Mech.Ui;
 
 [UsedImplicitly]
-public sealed class MechBoundUserInterface : BoundUserInterface
+public sealed class MechBoundUserInterface : BoundUserInterface, IBuiPreTickUpdate
 {
+    [Dependency] private readonly IClientGameTiming _gameTiming = default!;
+
     [ViewVariables]
     private MechMenu? _menu;
+
+    private BuiPredictionState? _pred;
+    private InputCoalescer<bool> _airtightCoalescer;
+    private InputCoalescer<bool> _fanCoalescer;
+    private InputCoalescer<bool> _filterCoalescer;
 
     public MechBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -30,13 +38,48 @@ public sealed class MechBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
+        _pred = new BuiPredictionState(this, _gameTiming);
+
         _menu = this.CreateWindowCenteredLeft<MechMenu>();
         _menu.SetEntity(Owner);
+        _menu.SetParentBui(this);
 
-        _menu.OnRemoveButtonPressed += uid =>
+        _menu.OnRemoveEquipmentButtonPressed += uid =>
         {
-            SendMessage(new MechEquipmentRemoveMessage(EntMan.GetNetEntity(uid)));
+            _pred.SendMessage(new MechEquipmentRemoveMessage(EntMan.GetNetEntity(uid)));
         };
+        _menu.OnRemoveModuleButtonPressed += uid =>
+        {
+            _pred.SendMessage(new MechModuleRemoveMessage(EntMan.GetNetEntity(uid)));
+        };
+
+        // RS14-start
+        _menu.OnDnaLockRegister += () => _pred.SendMessage(new MechDnaLockRegisterMessage());
+        _menu.OnDnaLockToggle += () => _pred.SendMessage(new MechDnaLockToggleMessage());
+        _menu.OnDnaLockReset += () => _pred.SendMessage(new MechDnaLockResetMessage());
+        _menu.OnCardLockRegister += () => _pred.SendMessage(new MechCardLockRegisterMessage());
+        _menu.OnCardLockToggle += () => _pred.SendMessage(new MechCardLockToggleMessage());
+        _menu.OnCardLockReset += () => _pred.SendMessage(new MechCardLockResetMessage());
+        _menu.OnCabinPurge += () => _pred.SendMessage(new MechCabinAirMessage());
+        _menu.OnAirtightToggle += isAirtight => _airtightCoalescer.Set(isAirtight);
+        _menu.OnFanToggle += isActive => _fanCoalescer.Set(isActive);
+        _menu.OnFilterToggle += enabled => _filterCoalescer.Set(enabled);
+        // RS14-end
+    }
+
+    void IBuiPreTickUpdate.PreTickUpdate()
+    {
+        if (_pred == null)
+            return;
+
+        if (_airtightCoalescer.CheckIsModified(out var airtightValue))
+            _pred.SendMessage(new MechAirtightMessage(airtightValue));
+
+        if (_fanCoalescer.CheckIsModified(out var fanValue))
+            _pred.SendMessage(new MechFanToggleMessage(fanValue));
+
+        if (_filterCoalescer.CheckIsModified(out var filterValue))
+            _pred.SendMessage(new MechFilterToggleMessage(filterValue));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -45,33 +88,37 @@ public sealed class MechBoundUserInterface : BoundUserInterface
 
         if (state is not MechBoundUiState msg)
             return;
-        UpdateEquipmentControls(msg);
-        _menu?.UpdateMechStats();
-        _menu?.UpdateEquipmentView();
-    }
 
-    public void UpdateEquipmentControls(MechBoundUiState state)
-    {
-        if (!EntMan.TryGetComponent<MechComponent>(Owner, out var mechComp))
-            return;
-
-        foreach (var ent in mechComp.EquipmentContainer.ContainedEntities)
+        if (_pred != null)
         {
-            var ui = GetEquipmentUi(ent);
-            if (ui == null)
-                continue;
-            foreach (var (attached, estate) in state.EquipmentStates)
+            foreach (var replayMsg in _pred.MessagesToReplay())
             {
-                if (ent == EntMan.GetEntity(attached))
-                    ui.UpdateState(estate);
+                switch (replayMsg)
+                {
+                    case MechAirtightMessage airtight:
+                        msg.IsAirtight = airtight.IsAirtight;
+                        break;
+                    case MechFanToggleMessage fanToggle:
+                        msg.FanActive = fanToggle.IsActive;
+                        msg.FanState = fanToggle.IsActive ? MechFanState.On : MechFanState.Off;
+                        break;
+                    case MechFilterToggleMessage filterToggle:
+                        msg.FilterEnabled = filterToggle.Enabled;
+                        break;
+                }
             }
         }
+
+        _menu?.UpdateState(msg);
     }
 
-    public UIFragment? GetEquipmentUi(EntityUid? uid)
+    protected override void Dispose(bool disposing)
     {
-        var component = EntMan.GetComponentOrNull<UIFragmentComponent>(uid);
-        component?.Ui?.Setup(this, uid);
-        return component?.Ui;
+        base.Dispose(disposing);
+        if (!disposing)
+            return;
+
+        _menu?.Close();
+        _menu = null;
     }
 }

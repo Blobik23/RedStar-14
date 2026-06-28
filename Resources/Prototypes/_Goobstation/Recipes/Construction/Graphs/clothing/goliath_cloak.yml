@@ -15,8 +15,18 @@
     edges:
     - to: cloak
       steps:
+      # RS14-start
+      - material: Sinew
+        amount: 2
+        doAfter: 2
+      # RS14-end
       - material: GoliathHide
-        amount: 1
+      # RS14-start
+        amount: 3
+        doAfter: 2
+      - material: WatcherWing
+        amount: 3
+      # RS14-end
         doAfter: 2
   - node: cloak
     entity: ClothingNeckCloakGoliathCloak

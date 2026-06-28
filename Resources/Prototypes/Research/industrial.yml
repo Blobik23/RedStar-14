@@ -82,6 +82,7 @@
   cost: 10000 # Goobstation
   recipeUnlocks:
   - MiningDrill
+  - Resonator # RS14
   - WeaponPlasmaCutter # Goobstation
   - MechEquipmentDrill # Goobstation
   - MineralScannerEmpty
@@ -168,7 +169,6 @@
   - LatheUpgradeKitCryo
   # End DeltaV Additions
   # Begin Goobstation Additions
-  - UpgradeKitAutomation
   - RoboticArmCircuitboard
   - ConstructorCircuitboard
   - StorageBinCircuitboard
@@ -279,6 +279,10 @@
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  # RS14-start
+  - MechModuleFan
+  - MechModuleAirTank
+  # RS14-end
   technologyPrerequisites:
   - AtmosphericTech
   # Goobstation R&D Console rework start
@@ -316,8 +320,10 @@
   tier: 2
   cost: 12500
   recipeUnlocks:
-    - OreBagOfHolding
+    # RS14: OreBagOfHolding moved to AdvancedExcavation.
     - MiningDrillDiamond
+    - ResonatorUpgraded # RS14
+    - DiamondPickaxe # RS14
     - AdvancedMineralScannerEmpty
     - BorgModuleAdvancedMining
     - MechEquipmentDrillDiamond # Goobstation
@@ -361,6 +367,10 @@
   recipeUnlocks:
   - PowerCellMicroreactor
   - PowerCellHyper
+  # RS14-start
+  - MechModuleTeslaRelay
+  - MechModulePlasmaGenerator
+  # RS14-end
   technologyPrerequisites:
   - AdvancedToolsTechnology  # Goobstation R&D Console rework
   - AdvancedPowercells  # Goobstation R&D Console rework

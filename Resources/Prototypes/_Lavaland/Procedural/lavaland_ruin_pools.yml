@@ -26,6 +26,8 @@
 
 - type: lavalandRuinPool
   id: LavalandRuins
+  ruinDistance: 14
+  maxDistance: 172
   gridRuins:
     # Corvax-Goob-start
     #SyndicateBase: 1
@@ -35,22 +37,54 @@
     CorvaxRatvar: 1
     #Ratvar: 1
     CorvaxWeatherStation: 1
-    CorvaxLavaMiningPost: 2
-    CorvaxWarehouse: 2
+    CorvaxLavaMiningPost: 1 # RS14
+    CorvaxWarehouse: 1 # RS14
     CorvaxSyndicateShuttle: 1
     CorvaxUnathi: 1
-    CorvaxCrystal: 3
+    #CorvaxCrystal: 3
     # Corvax-Goob-end
     HierophantArena: 1
+    # RS14-start: Wega megafauna arenas
+    BloodDrunkMiner: 1
+    MegaLegion: 1
+    Colossus: 1
+    DragonLair: 1
+    Bubblegum: 1
+    # RS14-end
+    # RS14-start: additional Wega Lavaland ruins
+    LavalandBarracks: 1
+    LavalandBeach: 1
+    LavalandCloningPod: 1
+    LavalandHospital: 1
+    LavalandNesting: 1
+    LavalandSpiderNest: 1
+    LavalandLaziness: 1
+    PreservedTerrarium: 1
+    GolemsShuttle: 1
+    Envy: 1
+    BasaltRuin: 1
+    CrashedSyndiepod: 1
+    HermitBase: 1
+    MinerTomb: 1
+    WreckedOutpost: 1
+    WinterReserve: 1
+    Biosphere: 1
+    Butterflys: 1
+    CloningConsole: 1
+    Greed: 1
+    Ritual: 1
+    Temple: 1
+    Necropolis: 1
+    # RS14-end
     RougeAI: 1
-    BiodomeBeach: 2
-    BiodomeSnow: 2
-    GolemShuttle: 1
+    #BiodomeBeach: 2
+    BiodomeSnow: 1
+    # GolemShuttle: 1 # RS14: replaced by the expanded Wega variant.
     ToyShop: 1
     Chemistry: 1
     Graveyard: 1
     SeedVault: 1
-    Hermit: 2
+    # Hermit: 2 # RS14: replaced by the expanded Wega variant.
     WaffleCo: 1
     ArrivalsBack: 1
     ArrivalsFront: 1
@@ -61,6 +95,7 @@
     CultBase: 1
     Hunter: 1
     XenoNest: 1
+    Reclaimer: 1
 #WIZDEN RUINS (only peak ones, rest are trash) man
     CargoWreck: 1
     Murder: 1
@@ -68,6 +103,6 @@
     Desk: 2
     Generator: 3
     Mug: 1
-    Temple: 1
-  dungeonRuins:
-    CommonRuin5x5: 60
+    # Temple: 1 # RS14: replaced by the expanded Wega variant.
+  markerRuins:
+    CommonRuin5x5: 50

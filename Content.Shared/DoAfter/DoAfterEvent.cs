@@ -113,6 +113,11 @@ public sealed partial class AwaitedDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
+// RS14-start
+[ByRefEvent]
+public record struct GetDoAfterUserEvent(EntityUid User);
+// RS14-end
+
 /// <summary>
 ///     This event will optionally get raised every tick while a do-after is in progress to check whether the do-after
 ///     should be canceled.

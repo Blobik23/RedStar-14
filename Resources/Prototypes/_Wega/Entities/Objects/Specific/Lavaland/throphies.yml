@@ -1,0 +1,217 @@
+# Все модификации и наработки в ss14-wega под тегом Corvax-Wega и директориях _Wega лицензированы под GNU GPL v3.
+# https://github.com/corvax-team/ss14-wega/blob/master/LICENSE.TXT
+
+- type: entity
+  parent: BaseCrusherUpgradeHandle
+  id: TrophyLavalandLegionSkull
+  name: legion skull
+  description: Increases crusher melee speed or proto-kinetic accelerator fire rate.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: skull
+  - type: ItemUpgrade
+    name: lavaland-trophy-legion-name
+    uniqueGroup: legionTrophy
+  - type: CrusherLegionSkullUpgrade
+  - type: Tag
+    tags:
+    - CrusherUpgradeHandle
+    - PKAUpgrade
+
+- type: entity
+  parent: BaseCrusherUpgradeHandle
+  id: TrophyLavalandBDMEye
+  name: eye of the blood-drunk miner
+  description: Increases crusher melee speed or proto-kinetic accelerator fire rate.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: eye
+  - type: ItemUpgrade
+    name: lavaland-trophy-bdm-name
+    uniqueGroup: bdmTrophy
+  - type: WeaponUpgradeSpeed
+    attackRateMultiplier: 1.25
+  - type: GunUpgradeFireRate
+    coefficient: 1.25
+  - type: Tag
+    tags:
+    - CrusherUpgradeHandle
+    - PKAUpgrade
+
+- type: entity
+  parent: BaseCrusherUpgradeBlade
+  id: TrophyLavalandAshDrakeSpike
+  name: ash drake spike
+  description: Adds heat damage to crusher attacks and explosive proto-kinetic shots.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: spike
+  - type: ItemUpgrade
+    name: lavaland-trophy-ash-drake-name
+    uniqueGroup: ashDrakeTrophy
+  - type: WeaponUpgradeDamage
+    bonusDamage:
+      types:
+        Heat: 8
+  - type: GunUpgradeDamage
+    bonusDamage:
+      types:
+        Heat: 8
+  - type: GunUpgradeAreaDamage
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - PKAUpgrade
+
+- type: entity
+  parent: BaseCrusherUpgradeBlade
+  id: TrophyLavalandBubblegumDemonClaws
+  name: demon claws
+  description: Increases crusher melee damage and grants life-steal to melee and proto-kinetic attacks.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: claws
+  - type: ItemUpgrade
+    name: lavaland-trophy-bubblegum-name
+    uniqueGroup: bubblegumTrophy
+  - type: CrusherDemonClawsUpgrade
+    meleeHeal:
+      types:
+        Blunt: -0.75
+  - type: GunUpgradeVampirism
+    damageOnHit:
+      types:
+        Blunt: -5
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - PKAUpgrade
+
+- type: entity
+  parent: BaseCrusherUpgradeBlade
+  id: TrophyLavalandColossusBlasterTubes
+  name: colossus blaster tubes
+  description: Adds blunt damage to crusher attacks and improves proto-kinetic projectile damage and velocity.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    layers:
+    - state: tubes
+  - type: ItemUpgrade
+    name: lavaland-trophy-colossus-name
+    uniqueGroup: colossusTrophy
+  - type: CrusherBlasterTubesUpgrade
+    projectileSpeedCoefficient: 1.25
+  - type: WeaponUpgradeDamage
+    bonusDamage:
+      types:
+        Blunt: 10
+  - type: GunUpgradeDamage
+    modifier: 1.2
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - PKAUpgrade
+
+- type: entity
+  parent: BaseCrusherUpgradeBlade
+  id: TrophyLavalandHierophantVortexTalisman
+  name: vortex talisman
+  description: Crusher hits and proto-kinetic impacts create temporary hierophant barriers.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    layers:
+    - state: vortex
+  - type: ItemUpgrade
+    name: lavaland-trophy-hierophant-name
+    uniqueGroup: hierophantTrophy
+  - type: HierophantTrophy
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - PKAUpgrade
+
+- type: entity
+  parent: BaseCrusherUpgradeHandle
+  id: MaterialGoliathTentacle
+  name: goliath tentacle
+  description: Increases damage as the wielder becomes more injured.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: tendril
+  - type: ItemUpgrade
+    name: lavaland-trophy-goliath-name
+    uniqueGroup: goliathTrophy
+  - type: CrusherGoliathTentacleUpgrade
+  - type: Stack
+    stackType: GoliathTentacle
+    count: 1
+
+- type: entity
+  parent: BaseCrusherUpgradeHandle
+  id: MaterialAncientGoliathTentacle
+  name: ancient goliath tentacle
+  description: Deals greatly increased damage to nearly uninjured targets.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: ancient_tendril
+  - type: ItemUpgrade
+    name: lavaland-trophy-ancient-goliath-name
+    uniqueGroup: goliathTrophy
+  - type: CrusherAncientGoliathTentacleUpgrade
+  - type: Stack
+    stackType: AncientGoliathTentacle
+    count: 1
+
+- type: entity
+  parent: BaseItem
+  id: MaterialMarrowWeaverPoisonFang
+  name: poison fang
+  description: A venomous fang suitable for crafting a crusher upgrade.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: fang
+  - type: Item
+    size: Tiny
+  - type: Stack
+    stackType: MarrowWeaverPoisonFang
+    count: 10
+
+- type: entity
+  parent: MaterialMarrowWeaverPoisonFang
+  id: MaterialMarrowWeaverPoisonFang1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BaseItem
+  id: MaterialFrostbiteWeaverFrostGland
+  name: frost gland
+  description: A freezing gland suitable for crafting a crusher upgrade.
+  components:
+  - type: Sprite
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: ice_gland
+  - type: Item
+    size: Tiny
+  - type: Stack
+    stackType: FrostbiteWeaverFrostGland
+    count: 10
+
+- type: entity
+  parent: MaterialFrostbiteWeaverFrostGland
+  id: MaterialFrostbiteWeaverFrostGland1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1

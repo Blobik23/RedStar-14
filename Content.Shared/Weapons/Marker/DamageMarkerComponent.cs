@@ -34,7 +34,7 @@ namespace Content.Shared.Weapons.Marker;
 /// <summary>
 /// Marks an entity to take additional damage
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), Access(typeof(SharedDamageMarkerSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), Access(typeof(SharedDamageMarkerSystem), typeof(Content.Shared._Wega.Lavaland.Upgrades.CrusherUpgradeEffectsSystem))] // RS14
 [AutoGenerateComponentPause]
 public sealed partial class DamageMarkerComponent : Component
 {

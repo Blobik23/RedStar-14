@@ -47,6 +47,22 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSheathFilledNavyOfficer
 
+- type: chameleonOutfit
+  id: NavyOfficerChameleonOutfit
+  job: NavyOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretEliteNavyOfficer
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: NavyOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilledNavyOfficer
+
 # Navy Captain
 
 - type: job
@@ -75,6 +91,23 @@
 
 - type: startingGear
   id: NavyCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretNavyCaptain
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: NavyCaptainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilledNavyOfficer
+    pocket1: NukeOverride
+
+- type: chameleonOutfit
+  id: NavyCaptainChameleonOutfit
+  job: NavyCaptain
   equipment:
     jumpsuit: ClothingUniformJumpsuitNavyGold
     shoes: ClothingShoesBootsJackFilled
@@ -131,6 +164,22 @@
     ears: ClothingHeadsetChameleon
     pocket1: WeaponPistolCentcommAgent
 
+- type: chameleonOutfit
+  id: NavyOfficerUndercoverChameleonOutfit
+  job: NavyOfficerUndercover
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChameleon
+    shoes: ClothingShoesChameleon
+    head: ClothingHeadHatChameleon
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsChameleon
+    mask: ClothingMaskGasVoiceChameleon
+    back: ClothingBackpackChameleonFilledUndercover
+    outerClothing: ClothingOuterArmourInvisibleChameleon
+    neck: ClothingNeckChameleon
+    id: ChameleonPDA
+    ears: ClothingHeadsetChameleon
+    pocket1: WeaponPistolCentcommAgent
 
 # Special Operations Officer
 
@@ -160,6 +209,24 @@
 
 - type: startingGear
   id: SpecialOperationsOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSpecOps
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretSecurity
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeatherFilledSpecOps
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: SpecialOperationsOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm
+    suitstorage: WeaponRifleAnnie
+    pocket1: WeaponRevolverMateba
+
+- type: chameleonOutfit
+  id: SpecialOperationsOfficerChameleonOutfit
+  job: SpecialOperationsOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSpecOps
     shoes: ClothingShoesBootsJackFilled
@@ -214,6 +281,20 @@
     id: DiplomatPDA
     ears: ClothingHeadsetAltCentCom
 
+- type: chameleonOutfit
+  id: DiplomatChameleonOutfit
+  job: Diplomat
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDiplomat
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: DiplomatPDA
+    ears: ClothingHeadsetAltCentCom
+
 # Inspector
 
 - type: job
@@ -254,7 +335,23 @@
     ears: ClothingHeadsetAltCentCom
     belt: BoxFolderCentComClipboard
 
+- type: chameleonOutfit
+  id: InspectorChameleonOutfit
+  job: Inspector
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledInspector
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: InspectorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: BoxFolderCentComClipboard
+
 # Nerfed CentComm Space Salvage Gear
+
 - type: startingGear
   id: MobRandomCommandCorpseCentComm
   equipment:
@@ -270,6 +367,7 @@
     pocket1: BoxFolderCentCom
 
 # Outer Command
+
 - type: job
   id: OuterCommander
   name: job-name-outercommander
@@ -296,6 +394,23 @@
 
 - type: startingGear
   id: OuterCommanderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOuterCommand
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatOuterCommandcap
+    neck: ClothingNeckCloakOuterCommand
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledInspector
+    outerClothing: ClothingOuterArmoredJacketOuterCommand
+    id: OuterCommandPDA
+    ears: ClothingHeadsetAltCentCom
+    pocket1: BoxFolderCentCom
+    pocket2: ExecutiveIDCard
+
+- type: chameleonOutfit
+  id: OuterCommanderChameleonOutfit
+  job: OuterCommander
   equipment:
     jumpsuit: ClothingUniformJumpsuitOuterCommand
     shoes: ClothingShoesBootsLaceup

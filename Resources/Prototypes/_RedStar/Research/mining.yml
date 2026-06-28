@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2026 RedStar Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: technology
+  id: AdvancedExcavation
+  name: research-technology-advanced-excavation
+  icon:
+    sprite: _RedStar/Objects/Tools/jackhammer.rsi
+    state: jackhammer
+  discipline: Industrial
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - Jackhammer
+  - OreBagOfHolding
+  - WeaponAdvPlasmaCutter
+  position: 0,-7
+  technologyPrerequisites:
+  - MassExcavation

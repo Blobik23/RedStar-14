@@ -8,8 +8,6 @@ concurrency:
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 1 * * *'
 
 jobs:
   build:
@@ -30,16 +28,16 @@ jobs:
 
       - name: Set DOTNET_ROOT and PATH
         run: |
-          echo "DOTNET_ROOT=${{ runner.temp }}/.dotnet" >> $GITHUB_ENV
-          echo "${{ runner.temp }}/.dotnet" >> $GITHUB_PATH
+          echo "DOTNET_ROOT=${{ runner.temp }}/.dotnet" >> "$GITHUB_ENV"
+          echo "${{ runner.temp }}/.dotnet" >> "$GITHUB_PATH"
 
       - name: Check .NET installation
         run: dotnet --info
 
-      - name: Fetch engine tags
+      - name: Get Engine Tag
         run: |
           cd RobustToolbox
-          git fetch --tags --force
+          git fetch --depth=1
 
       - name: Restore dependencies
         run: dotnet restore
@@ -54,9 +52,35 @@ jobs:
         run: dotnet run --project Content.Packaging client --no-wipe-release
 
       - name: Publish version to Robust.Cdn
-        run: Tools/publish_multi_request.py
+        run: |
+          set -euo pipefail
+
+          CDN="${ROBUST_CDN_URL%/}"
+          URL="$CDN/fork/$FORK_ID/version/$GITHUB_SHA/file/SS14.Client.zip"
+
+          echo "CDN URL: $CDN"
+          echo "Fork ID: $FORK_ID"
+          echo "Version: $GITHUB_SHA"
+          echo "Client URL: $URL"
+
+          if curl -fsS -r 0-0 "$URL" -o /dev/null; then
+            echo "Version already exists in Robust.Cdn, skipping publish."
+          else
+            echo "Version does not exist in Robust.Cdn, publishing..."
+            python3 Tools/publish_multi_request.py
+          fi
         env:
           PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
           GITHUB_SHA: ${{ github.sha }}
           FORK_ID: ${{ vars.FORK_ID }}
           ROBUST_CDN_URL: ${{ vars.ROBUST_CDN_URL }}
+
+      - name: Deploy to Watchdog
+        uses: appleboy/ssh-action@v1.2.5
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -euo pipefail
+            /opt/ss14/deploy-latest-redstar.sh "${{ github.sha }}"

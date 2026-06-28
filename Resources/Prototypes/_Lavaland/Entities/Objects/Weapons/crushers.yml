@@ -60,7 +60,7 @@
     slots:
     - Back
     - suitStorage
-  - type: UpgradeableWeapon
+  - type: ItemUpgradeable
   - type: ContainerContainer
     containers:
       flashlight: !type:ContainerSlot
@@ -133,6 +133,10 @@
         whitelist:
           tags:
           - CrusherUpgradeBladeIceFrost
+      upgrade-poison: # RS14
+        whitelist:
+          tags:
+          - CrusherUpgradeBladePoison
       upgrade-sharpness:
         whitelist:
           tags:

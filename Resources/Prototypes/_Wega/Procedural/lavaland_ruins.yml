@@ -1,0 +1,140 @@
+# Все модификации и наработки в ss14-wega под тегом Corvax-Wega и директориях _Wega
+# лицензированы под GNU GPL v3:
+# https://github.com/corvax-team/ss14-wega/blob/master/LICENSE.TXT
+
+- type: lavalandGridRuin
+  id: LavalandBarracks
+  name: lavaland-ruin-barracks
+  path: /Maps/_Wega/Lavaland/barracks.yml
+  priority: 10
+
+- type: lavalandGridRuin
+  id: LavalandBeach
+  name: lavaland-ruin-beach
+  path: /Maps/_Wega/Lavaland/beach.yml
+  priority: 11
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: LavalandCloningPod
+  name: lavaland-ruin-cloning-pod
+  path: /Maps/_Wega/Lavaland/cloningpod.yml
+  priority: 12
+
+- type: lavalandGridRuin
+  id: LavalandHospital
+  name: lavaland-ruin-hospital
+  path: /Maps/_Wega/Lavaland/hospital.yml
+  priority: 13
+
+- type: lavalandGridRuin
+  id: LavalandNesting
+  name: lavaland-ruin-nesting
+  path: /Maps/_Wega/Lavaland/nesting.yml
+  priority: 14
+
+- type: lavalandGridRuin
+  id: LavalandSpiderNest
+  name: lavaland-ruin-spider-nest
+  path: /Maps/_Wega/Lavaland/spidernest.yml
+  priority: 15
+
+- type: lavalandGridRuin
+  id: LavalandLaziness
+  name: lavaland-ruin-laziness
+  path: /Maps/_Wega/Lavaland/Laziness.yml
+  priority: 16
+
+- type: lavalandGridRuin
+  id: PreservedTerrarium
+  name: lavaland-ruin-biodome
+  path: /Maps/Lavaland/preserved_terrarium.yml
+  priority: 17
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: GolemsShuttle
+  name: lavaland-ruin-big-shuttle
+  path: /Maps/_Wega/Lavaland/golemsshuttle.yml
+  priority: 18
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: Envy
+  name: lavaland-ruin-cult
+  path: /Maps/_Wega/Lavaland/Envy.yml
+  priority: 19
+
+- type: lavalandGridRuin
+  id: BasaltRuin
+  name: lavaland-ruin-rock
+  path: /Maps/Lavaland/basalt_ruin.yml
+  priority: 20
+
+- type: lavalandGridRuin
+  id: CrashedSyndiepod
+  name: lavaland-ruin-crash
+  path: /Maps/Lavaland/crashedsyndiepod.yml
+  priority: 21
+
+- type: lavalandGridRuin
+  id: HermitBase
+  name: lavaland-ruin-shelter
+  path: /Maps/_Wega/Lavaland/hermit_base.yml
+  priority: 22
+
+- type: lavalandGridRuin
+  id: MinerTomb
+  name: lavaland-ruin-rock
+  path: /Maps/_Wega/Lavaland/miner_tomb.yml
+  priority: 23
+
+- type: lavalandGridRuin
+  id: WreckedOutpost
+  name: lavaland-ruin-station
+  path: /Maps/Lavaland/wrecked_outpost.yml
+  priority: 24
+
+- type: lavalandGridRuin
+  id: WinterReserve
+  name: lavaland-ruin-ice
+  path: /Maps/_Wega/Lavaland/winterreserve.yml
+  priority: 25
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: Biosphere
+  name: lavaland-ruin-biodome
+  path: /Maps/_Wega/Lavaland/biosphere.yml
+  priority: 26
+  patchToPlanet: false
+
+- type: lavalandGridRuin
+  id: Butterflys
+  name: lavaland-ruin-cult
+  path: /Maps/_Wega/Lavaland/butterflys.yml
+  priority: 27
+
+- type: lavalandGridRuin
+  id: CloningConsole
+  name: lavaland-ruin-laboratory
+  path: /Maps/_Wega/Lavaland/cloningconsole.yml
+  priority: 28
+
+- type: lavalandGridRuin
+  id: Greed
+  name: lavaland-ruin-cult
+  path: /Maps/_Wega/Lavaland/Greed.yml
+  priority: 29
+
+- type: lavalandGridRuin
+  id: Ritual
+  name: lavaland-ruin-cult
+  path: /Maps/_Wega/Lavaland/ritual.yml
+  priority: 30
+
+- type: lavalandGridRuin
+  id: Necropolis
+  name: lavaland-ruin-cult
+  path: /Maps/_Wega/Lavaland/necropolis.yml
+  priority: 31

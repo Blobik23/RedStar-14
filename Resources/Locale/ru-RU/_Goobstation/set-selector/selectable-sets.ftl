@@ -58,7 +58,7 @@ selectable-set-syndicate-hitman-description =
 selectable-set-syndicate-implants-name = Набор киберпсихоза
 selectable-set-syndicate-implants-description =
     Несколько имплантов, чтобы внезапный арест не застал тебя врасплох.
-    Включает: импланты "питательный насос ЦК", "побег", "свобода"
+    Включает: импланты "питательный насос ГШ", "побег", "свобода"
     "дым", "Крав Маг" и "рация оперативника", Сандевистан, и пару автохирургов клинков богомола.
     Ну и крутая кожанка, конечно.
 selectable-set-syndicate-hacker-name = Набор хакера
@@ -113,7 +113,7 @@ selectable-set-syndicate-builder-description =
 
 # Blueshield
 
-selectable-set-blueshield-shield-name = Набор Синего Щита
+selectable-set-blueshield-shield-name = Набор "Синий Щит"
 selectable-set-blueshield-shield-description =
     Знаковое снаряжение этих солдат.
     Содержит: большой щит и кастомизированную дубинку DT-3 "Злодей".
@@ -148,7 +148,7 @@ selectable-set-blueshield-syringe-description =
 
 selectable-set-blueshield-hardsuit-light-name = бронированный боевой костюм
 selectable-set-blueshield-hardsuit-light-description = Бронированный боевой костюм, дающий больше скорости за счет меньшей защиты.
-selectable-set-blueshield-modsuit-name = MOD Синего Щита
+selectable-set-blueshield-modsuit-name = MOD "Синий Щит"
 selectable-set-blueshield-modsuit-description = MOD требующий питания.
 
 # ERT

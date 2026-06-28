@@ -282,7 +282,7 @@
 
 - type: entity
   id: BaseLathe
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
   abstract: true
   name: lathe
   components:
@@ -668,6 +668,8 @@
     - BorgModules
     - MechParts
     - MechEquipment
+    # RS14
+    - MechModule
     # Goobstation Packs
     - MechPartsGoob
     - Modsuits
@@ -802,6 +804,8 @@
     # CorvaxGoob Packs
     - SecurityCaptureDevicePack # WeaponGrapplingGunHunter
     - WorkBeltsSecDynamic # WorkBelts-Techfab
+    # RedStar Packs:
+    - SecurityWeaponsRedStar
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoLightStatic

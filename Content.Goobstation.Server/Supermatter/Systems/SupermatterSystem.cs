@@ -54,6 +54,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes; // RS14
 using Robust.Shared.Random; // CorvaxGoob-SM-Accent-Sound
 using Robust.Shared.Timing;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -641,6 +642,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     {
         var target = args.OtherEntity;
 
+        if (args.OurEntity != uid)
+            return;
+        if (!args.OtherFixture.Hard && !HasComp<ProjectileComponent>(args.OtherEntity))
+            return;
+
         // Stop immune entities from activating the sm.
         if (args.OtherBody.BodyType == BodyType.Static
             || HasComp<SupermatterImmuneComponent>(target)
@@ -752,7 +758,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         sm.Damage += sm.DelaminationPoint / 10;
         sm.DamageArchived += sm.DelaminationPoint / 10;
         sm.SliverRemoved = true;
-        
+
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 

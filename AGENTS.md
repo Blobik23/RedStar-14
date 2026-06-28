@@ -205,10 +205,6 @@ For fork content, use corresponding files in `Resources/Changelog/` according to
 
 Use entry types `Add`, `Fix`, `Tweak`, `Remove` and include PR number when available.
 
-### AI-generated Content
-
-AI-generated content (code, sprites, and similar assets) is prohibited for repository contribution.
-
 ---
 
 ## Вклад в разработку RedStar-14
@@ -275,7 +271,3 @@ git restore --source upstream/master -- RobustToolbox
 Для контента форка используйте соответствующие файлы в `Resources\Changelog\` по текущему формату репозитория.
 
 Следуйте формату записей (`Add`, `Fix`, `Tweak`, `Remove`) и указывайте номер PR, если он есть.
-
-### Генерированный ИИ-контент
-
-Контент, созданный ИИ (код, спрайты и т.п.), **запрещено** добавлять в репозиторий.

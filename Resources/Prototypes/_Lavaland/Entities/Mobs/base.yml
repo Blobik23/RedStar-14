@@ -44,3 +44,5 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  # RS14: Native Lavaland mobs must not be killed by the planet's ashfall weather.
+  - type: WeatherImmune

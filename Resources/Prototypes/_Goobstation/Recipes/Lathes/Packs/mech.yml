@@ -8,9 +8,7 @@
 ## Static
 - type: latheRecipePack
   id: MechPartsStatic
-  recipes:
-  - MechAirTank
-  - MechThruster
+  recipes: [] # RS14: remove dummy Goob mech parts.
 
 - type: latheRecipePack
   id: MechWeaponsSecurityStatic
@@ -75,10 +73,10 @@
 - type: latheRecipePack
   id: MechBoardsSecurity
   recipes:
-#  - GygaxCentralElectronics
+  - GygaxCentralElectronics
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
-#  - DurandCentralElectronics
+  - DurandCentralElectronics
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
 

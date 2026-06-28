@@ -1,0 +1,46 @@
+- type: entity
+  id: CrusherUpgradeBladePoison
+  parent: BaseCrusherUpgradeBlade
+  name: crusher blade upgrade (poison)
+  description: A toxic crystal grown from marrow weaver fangs.
+  components:
+  - type: Sprite
+    sprite: _RedStar/Objects/Weapons/Upgrades/crusher.rsi
+    state: poison-shard
+  - type: ItemUpgrade
+    name: gun-upgrade-crusher-poison
+  - type: WeaponUpgradeDamage
+    bonusDamage:
+      types:
+        Poison: 5
+  - type: Construction
+    graph: CrusherUpgradePoisonCrystalConstructionGraph
+    node: crystal
+  - type: Tag
+    tags:
+    - CrusherUpgradeBlade
+    - CrusherUpgradeBladePoison
+
+- type: Tag
+  id: CrusherUpgradeBladePoison
+
+- type: construction
+  id: CrusherUpgradePoisonCrystalConstruction
+  graph: CrusherUpgradePoisonCrystalConstructionGraph
+  category: construction-category-weapons
+  targetNode: crystal
+  objectType: Item
+
+- type: constructionGraph
+  id: CrusherUpgradePoisonCrystalConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: crystal
+      steps:
+      - material: MarrowWeaverPoisonFang
+        amount: 5
+        doAfter: 4
+  - node: crystal
+    entity: CrusherUpgradeBladePoison

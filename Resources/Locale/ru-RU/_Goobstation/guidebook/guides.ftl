@@ -69,8 +69,8 @@ guide-entry-sop-cargotech = Грузчик
 guide-entry-sop-salvage = Утилизатор
 guide-entry-sop-shaft-miner = Шахтёр
 # - Командование
-guide-entry-sop-ntr = Представитель NanoTrasen
-guide-entry-sop-bso = Офицер Синего Щита
+guide-entry-sop-ntr = Представитель СССП
+guide-entry-sop-bso = Офицер "Синий Щит"
 guide-entry-sop-captain = Капитан
 guide-entry-sop-hop = Начальник отдела кадров
 guide-entry-sop-hos = Начальник милиции

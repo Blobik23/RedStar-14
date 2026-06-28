@@ -7,6 +7,9 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Serialization;
+using Content.Shared.Materials;
+using Content.Shared.Mech.Module.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mech;
 
@@ -50,6 +53,72 @@ public sealed class MechEquipmentRemoveMessage : BoundUserInterfaceMessage
         Equipment = equipment;
     }
 }
+
+// RS14-start
+/// <summary>
+/// UI event raised to remove a passive module from a mech.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class MechModuleRemoveMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Module;
+
+    public MechModuleRemoveMessage(NetEntity module)
+    {
+        Module = module;
+    }
+}
+
+/// <summary>
+/// UI event raised to purge the mech cabin air.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class MechCabinAirMessage : BoundUserInterfaceMessage
+{
+}
+
+/// <summary>
+/// UI event raised to toggle airtight mode on a mech.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class MechAirtightMessage : BoundUserInterfaceMessage
+{
+    public bool IsAirtight;
+
+    public MechAirtightMessage(bool isAirtight)
+    {
+        IsAirtight = isAirtight;
+    }
+}
+
+/// <summary>
+/// UI event raised to toggle the installed fan module.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class MechFanToggleMessage : BoundUserInterfaceMessage
+{
+    public bool IsActive;
+
+    public MechFanToggleMessage(bool isActive)
+    {
+        IsActive = isActive;
+    }
+}
+
+/// <summary>
+/// UI event raised to toggle the installed fan module's filter.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class MechFilterToggleMessage : BoundUserInterfaceMessage
+{
+    public bool Enabled;
+
+    public MechFilterToggleMessage(bool enabled)
+    {
+        Enabled = enabled;
+    }
+}
+// RS14-end
 
 /// <summary>
 /// base for all mech ui messages
@@ -115,6 +184,40 @@ public sealed class MechSoundboardPlayMessage : MechEquipmentUiMessage
 public sealed class MechBoundUiState : BoundUserInterfaceState
 {
     public Dictionary<NetEntity, BoundUserInterfaceState> EquipmentStates = new();
+    // RS14-start
+    public List<NetEntity> Equipment = new();
+    public List<NetEntity> Modules = new();
+    public bool HasLock;
+    public bool IsLocked;
+    public bool DnaLockRegistered;
+    public bool DnaLockActive;
+    public string? DnaLockOwner;
+    public bool CardLockRegistered;
+    public bool CardLockActive;
+    public string? CardLockOwner;
+    public bool CanAirtight;
+    public bool IsAirtight;
+    public float CabinPressureLevel;
+    public float CabinTemperature;
+    public float TankPressure;
+    public float GasAmountLiters;
+    public bool CabinPurgeAvailable;
+    public bool HasFanModule;
+    public bool FanActive;
+    public MechFanState FanState = MechFanState.Off;
+    public bool FilterEnabled;
+    public bool HasGasModule;
+    public int ModuleSpaceMax;
+    public int ModuleSpaceUsed;
+    public bool PilotPresent;
+    public float Integrity;
+    public float MaxIntegrity;
+    public float Energy;
+    public float MaxEnergy;
+    public int EquipmentUsed;
+    public int MaxEquipmentAmount;
+    public bool IsBroken;
+    // RS14-end
 }
 
 [Serializable, NetSerializable]
@@ -132,3 +235,55 @@ public sealed class MechSoundboardUiState : BoundUserInterfaceState
 {
     public List<string> Sounds = new();
 }
+
+// RS14-start
+[Serializable, NetSerializable]
+public sealed class MechGeneratorUiState : BoundUserInterfaceState
+{
+    public float ChargeCurrent;
+    public float ChargeMax;
+    public bool HasFuel;
+    public ProtoId<MaterialPrototype>? FuelName;
+    public float FuelAmount;
+    public float FuelCapacity;
+}
+
+[Serializable, NetSerializable]
+public sealed class MechGeneratorEjectFuelMessage : MechEquipmentUiMessage
+{
+    public MechGeneratorEjectFuelMessage(NetEntity equipment)
+    {
+        Equipment = equipment;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class MechDnaLockRegisterMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class MechDnaLockToggleMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class MechDnaLockResetMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class MechCardLockRegisterMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class MechCardLockToggleMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class MechCardLockResetMessage : BoundUserInterfaceMessage
+{
+}
+// RS14-end

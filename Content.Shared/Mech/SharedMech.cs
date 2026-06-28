@@ -46,6 +46,26 @@ public readonly record struct MechEquipmentRemovedEvent(EntityUid Mech)
     public readonly EntityUid Mech = Mech;
 }
 
+// RS14-start
+/// <summary>
+/// Event raised on a module when it is inserted into a mech.
+/// </summary>
+[ByRefEvent]
+public readonly record struct MechModuleInsertedEvent(EntityUid Mech)
+{
+    public readonly EntityUid Mech = Mech;
+}
+
+/// <summary>
+/// Event raised on a module when it is removed from a mech.
+/// </summary>
+[ByRefEvent]
+public readonly record struct MechModuleRemovedEvent(EntityUid Mech)
+{
+    public readonly EntityUid Mech = Mech;
+}
+// RS14-end
+
 /// <summary>
 /// Raised on the mech equipment before it is going to be removed.
 /// </summary>
@@ -58,6 +78,28 @@ public record struct AttemptRemoveMechEquipmentEvent()
 public sealed partial class MechToggleEquipmentEvent : InstantActionEvent
 {
 }
+
+// RS14-start
+[ByRefEvent]
+public readonly record struct MechOpenEquipmentRadialEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class RequestMechEquipmentSelectEvent : EntityEventArgs
+{
+    public NetEntity? Equipment;
+
+    public RequestMechEquipmentSelectEvent()
+    {
+    }
+
+    public RequestMechEquipmentSelectEvent(NetEntity? equipment)
+    {
+        Equipment = equipment;
+    }
+}
+// RS14-end
 
 public sealed partial class MechOpenUiEvent : InstantActionEvent
 {

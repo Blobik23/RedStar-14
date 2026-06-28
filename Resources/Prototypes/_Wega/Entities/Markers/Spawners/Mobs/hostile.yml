@@ -1,0 +1,9 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAncientGoliathLavaland
+  name: ancient goliath spawner
+  suffix: Lavaland
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobLavalandGoliathAncient

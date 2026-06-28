@@ -1,4 +1,8 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2026 Goob Station Contributors
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
 using Content.Server.StationEvents.Components;
@@ -45,7 +49,7 @@ public sealed partial class GameDirectorSystem
         if (selectedRules == null)
             return;
 
-        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, _event.AvailableEvents(), out var possibleEvents))
+        if (!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents))
             return;
 
         foreach (var (proto, stationEvent) in possibleEvents)

@@ -48,6 +48,7 @@
     blacklist:
       tags:
         - Catwalk
+        - LavaWalking
     triggerGroups: # Goobstation
       types:
         - Lava

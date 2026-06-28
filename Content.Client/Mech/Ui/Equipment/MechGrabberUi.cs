@@ -15,24 +15,22 @@ namespace Content.Client.Mech.Ui.Equipment;
 public sealed partial class MechGrabberUi : UIFragment
 {
     private MechGrabberUiFragment? _fragment;
+    private BoundUserInterface? _userInterface;
+    private EntityUid? _fragmentOwner;
 
     public override Control GetUIFragmentRoot()
     {
-        return _fragment!;
+        return EnsureFragment();
     }
 
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
+        EnsureFragment();
+        _userInterface = userInterface;
+        _fragmentOwner = fragmentOwner;
+
         if (fragmentOwner == null)
             return;
-
-        _fragment = new MechGrabberUiFragment();
-
-        _fragment.OnEjectAction += e =>
-        {
-            var entManager = IoCManager.Resolve<IEntityManager>();
-            userInterface.SendMessage(new MechGrabberEjectMessage(entManager.GetNetEntity(fragmentOwner.Value), entManager.GetNetEntity(e)));
-        };
     }
 
     public override void UpdateState(BoundUserInterfaceState state)
@@ -41,5 +39,24 @@ public sealed partial class MechGrabberUi : UIFragment
             return;
 
         _fragment?.UpdateContents(grabberState);
+    }
+
+    private MechGrabberUiFragment EnsureFragment()
+    {
+        if (_fragment is { Disposed: false })
+            return _fragment;
+
+        _fragment = new MechGrabberUiFragment();
+        _fragment.OnEjectAction += OnEjectAction;
+        return _fragment;
+    }
+
+    private void OnEjectAction(EntityUid target)
+    {
+        if (_userInterface == null || _fragmentOwner == null)
+            return;
+
+        var entManager = IoCManager.Resolve<IEntityManager>();
+        _userInterface.SendMessage(new MechGrabberEjectMessage(entManager.GetNetEntity(_fragmentOwner.Value), entManager.GetNetEntity(target)));
     }
 }

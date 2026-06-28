@@ -1,6 +1,10 @@
+# SPDX-FileCopyrightText: 2026 RedStar Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: gameMap
   id: CorvaxMascara
-  mapName: 'NTSX Маскара'
+  mapName: 'USSP Маскара'
   mapPath: /Maps/_CorvaxGoob/Stations/Mascara/corvax_mascara.yml
   maxRandomOffset: 0
   randomRotation: false
@@ -57,6 +61,7 @@
             Lawyer: [ 1, 1 ]
             Pilot: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
+            Magistrate: [ 1, 1 ]
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]

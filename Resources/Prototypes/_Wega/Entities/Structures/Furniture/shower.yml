@@ -1,0 +1,14 @@
+- type: entity
+  id: Shower
+  parent: BaseStructure
+  name: shower
+  description: A non-functional shower.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Wega/Lavaland/Structures/Furniture/shower.rsi
+    state: shower
+  - type: Physics
+    bodyType: Static

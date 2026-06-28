@@ -1,0 +1,26 @@
+- type: entity
+  parent: MarkerBase
+  id: MarkerLavalandSignalBase
+  abstract: true
+  components:
+  - type: NavMapBeacon
+    text: Lavaland signal
+    color: "#a46106"
+
+- type: entity
+  parent: MarkerLavalandSignalBase
+  id: MarkerWinterReserveSignal
+  name: winter reserve signal
+  components:
+  - type: NavMapBeacon
+    text: Winter reserve
+    color: "#ffffff"
+
+- type: entity
+  parent: MarkerLavalandSignalBase
+  id: MarkerBiosphereSignal
+  name: biosphere signal
+  components:
+  - type: NavMapBeacon
+    text: Biosphere
+    color: "#89a932"

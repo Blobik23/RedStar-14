@@ -83,6 +83,20 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: RipleyMKIIHarness
+    assemblyId: RipleyMKII
+    partPrototypes:
+    - RipleyUpgradeKit
+    - RipleyLArm
+    - RipleyRArm
+    - RipleyLLeg
+    - RipleyRLeg
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -111,6 +125,22 @@
     containers:
       mech-battery-slot:
       - PowerCellHigh
+
+# RS14-start
+- type: entity
+  id: MechRipley2Filled
+  parent: MechRipley2Battery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - MechEquipmentGrabber
+      - WeaponMechMeleeDrill
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+# RS14-end
 
 # Clarke
 - type: entity
@@ -141,6 +171,19 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: ClarkeHarness
+    assemblyId: Clarke
+    partPrototypes:
+    - ClarkeHead
+    - ClarkeLArm
+    - ClarkeRArm
+    - ClarkeTreads
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -170,6 +213,22 @@
       mech-battery-slot:
       - PowerCellHigh
 
+# RS14-start
+- type: entity
+  id: MechClarkeFilled
+  parent: MechClarkeBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechMeleeDrillDiamond
+      - WeaponMechIndustrialKineticAccelerator
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+# RS14-end
+
 - type: entity
   parent: MechHonkerBattery
   id: MechHonkerFilled
@@ -179,7 +238,13 @@
     startingEquipment:
       - WeaponMechSpecialBananaMortar
       - WeaponMechSpecialMousetrapMortar
-      - MechEquipmentHorn
+    startingModules:
+      # RS14-start
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+      # RS14-end
+      - MechModuleHorn
 
 # Combat-Station Mechs
 
@@ -212,6 +277,20 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: GygaxHarness
+    assemblyId: Gygax
+    partPrototypes:
+    - GygaxHead
+    - GygaxLArm
+    - GygaxRArm
+    - GygaxLLeg
+    - GygaxRLeg
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -244,6 +323,23 @@
       mech-battery-slot:
       - PowerCellHigh
 
+# RS14-start
+- type: entity
+  id: MechGygaxFilled
+  parent: MechGygaxBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatDisabler
+      - WeaponMechCombatShotgun
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+# RS14-end
+
 # Durand
 - type: entity
   id: MechDurand
@@ -274,6 +370,20 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: DurandHarness
+    assemblyId: Durand
+    partPrototypes:
+    - DurandHead
+    - DurandLArm
+    - DurandRArm
+    - DurandLLeg
+    - DurandRLeg
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -310,6 +420,23 @@
     containers:
       mech-battery-slot:
       - PowerCellHigh
+
+# RS14-start
+- type: entity
+  id: MechDurandFilled
+  parent: MechDurandBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatShotgun
+      - WeaponMechCombatUltraRifle
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+# RS14-end
 
 # Nanotrasen Combat Mechs
 
@@ -387,6 +514,12 @@
       - WeaponMechCombatPulseRifle
       - WeaponMechCombatUltraRifle
       - WeaponMechCombatMissileRack8
+    # RS14-start
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+    # RS14-end
 
 # Seraph
 - type: entity
@@ -463,6 +596,12 @@
       - WeaponMechCombatShotgun
       - WeaponMechCombatMissileRack6
       - WeaponMechCombatUltraRifle
+    # RS14-start
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+    # RS14-end
 
 # Syndicate Combat Mech
 
@@ -538,8 +677,14 @@
     startingEquipment:
       - WeaponMechChainSword
       - WeaponMechCombatShotgun
-      - WeaponMechCombatMissileRack8
-      - WeaponMechCombatTeslaCannon
+      # RS14-value: WeaponMechCombatMissileRack8 -> WeaponMechCombatMissileRack6
+      - WeaponMechCombatMissileRack6
+    # RS14-start
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+    # RS14-end
 
 # Mauler
 - type: entity
@@ -614,5 +759,11 @@
       - WeaponMechChainSword
       - WeaponMechCombatUltraRifle
       - WeaponMechCombatShotgun
-      - WeaponMechCombatMissileRack6
-      - WeaponMechCombatTeslaCannon
+      # RS14-value: WeaponMechCombatMissileRack6 -> WeaponMechCombatMissileRack8
+      - WeaponMechCombatMissileRack8
+    # RS14-start
+    startingModules:
+      - MechModuleFan
+      - MechModuleAirTank
+      - MechModuleTeslaRelay
+    # RS14-end

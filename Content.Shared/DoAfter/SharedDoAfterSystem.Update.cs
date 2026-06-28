@@ -250,20 +250,31 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         if (args.Used is { } @using && !xformQuery.TryGetComponent(@using, out usedXform))
             return true;
 
-        // TODO: Re-use existing xform query for these calculations.
-        if (args.BreakOnMove && !(!args.BreakOnWeightlessMove && _gravity.IsWeightless(args.User, xform: userXform)))
+        var movementEntity = args.User;
+        TransformComponent? movementXform = userXform;
+        if (args.BreakOnMove)
         {
-            // Whether the user has moved too much from their original position.
-            if (!_transform.InRange(userXform.Coordinates, doAfter.UserPosition, args.MovementThreshold))
+            movementEntity = doAfter.MovementEntity;
+            if (!xformQuery.TryGetComponent(movementEntity, out movementXform))
+                return true;
+        }
+
+        // TODO: Re-use existing xform query for these calculations.
+        if (args.BreakOnMove && !(!args.BreakOnWeightlessMove && _gravity.IsWeightless(movementEntity, xform: movementXform)))
+        {
+            // RS14-start
+            // Whether the effective movement entity has moved too much from its original position.
+            if (!_transform.InRange(movementXform.Coordinates, doAfter.UserPosition, args.MovementThreshold))
                 return true;
 
-            // Whether the distance between the user and target(if any) has changed too much.
+            // Whether the distance between the effective movement entity and target(if any) has changed too much.
             if (targetXform != null &&
-                targetXform.Coordinates.TryDistance(EntityManager, userXform.Coordinates, out var distance))
+                targetXform.Coordinates.TryDistance(EntityManager, movementXform.Coordinates, out var distance))
             {
                 if (Math.Abs(distance - doAfter.TargetDistance) > args.MovementThreshold)
                     return true;
             }
+            // RS14-end
         }
 
         // Whether the user and the target are too far apart.

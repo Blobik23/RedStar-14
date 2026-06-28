@@ -16,9 +16,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Alert;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mech.Components;
@@ -48,6 +50,14 @@ public sealed partial class MechComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 MaxIntegrity = 250;
+
+    // RS14-start
+    /// <summary>
+    /// Health threshold below which the mech enters broken state instead of staying pilotable.
+    /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public FixedPoint2 BrokenThreshold = 25;
+    // RS14-end
 
     /// <summary>
     /// How much energy the mech has.
@@ -84,6 +94,44 @@ public sealed partial class MechComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Broken = false;
+
+    // RS14-start
+    /// <summary>
+    /// Sound played when the mech enters broken state.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? BrokenSound;
+
+    /// <summary>
+    /// Optional sound played after a pilot successfully enters the mech.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? EntrySuccessSound;
+
+    /// <summary>
+    /// Battery alert shown through the pilot alert relay while operating the mech.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> BatteryAlert = "BorgBattery";
+
+    /// <summary>
+    /// Alert shown through the pilot alert relay when the mech has no battery.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
+
+    /// <summary>
+    /// Health alert shown through the pilot alert relay while operating the mech.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> HealthAlert = "MechaHealth";
+
+    /// <summary>
+    /// Alert shown through the pilot alert relay when the mech is broken.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> BrokenAlert = "MechaBroken";
+    // RS14-end
 
     /// <summary>
     /// The slot the pilot is stored in.
@@ -129,6 +177,29 @@ public sealed partial class MechComponent : Component
     [ViewVariables]
     public readonly string EquipmentContainerId = "mech-equipment-container";
 
+    // RS14-start
+    /// <summary>
+    /// The maximum amount of passive modules that can be installed in the mech.
+    /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public int MaxModuleAmount = 4;
+
+    /// <summary>
+    /// A container for storing passive module entities.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Container ModuleContainer = default!;
+
+    [ViewVariables]
+    public readonly string ModuleContainerId = "mech-passive-module-container";
+
+    /// <summary>
+    /// A whitelist for inserting module items.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? ModuleWhitelist;
+    // RS14-end
+
     /// <summary>
     /// How long it takes to enter the mech.
     /// </summary>
@@ -148,14 +219,26 @@ public sealed partial class MechComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float BatteryRemovalDelay = 2;
 
+    // RS14-start
     /// <summary>
-    /// Whether or not the mech is airtight.
+    /// Energy consumed while the mech is actively moving, in charge units per second.
     /// </summary>
-    /// <remarks>
-    /// This needs to be redone
-    /// when mech internals are added
-    /// </remarks>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public float MovementEnergyPerSecond = 5f;
+    // RS14-end
+
+    // RS14-start
+    /// <summary>
+    /// Whether this mech has a pressurized cabin capability.
+    /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public bool CanAirtight = true;
+    // RS14-end
+
+    /// <summary>
+    /// Whether or not the mech is currently airtight.
+    /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool Airtight;
 
     /// <summary>
@@ -165,11 +248,19 @@ public sealed partial class MechComponent : Component
     [DataField]
     public List<EntProtoId> StartingEquipment = new();
 
+    // RS14-start
+    /// <summary>
+    /// The passive modules that the mech initially has when it spawns.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> StartingModules = new();
+    // RS14-end
+
     #region Action Prototypes
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
     [DataField]
-    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
+    public EntProtoId ToggleAction = "ActionMechToggleLight"; // RS14
     [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
     [DataField]
@@ -190,3 +281,11 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechEjectActionEntity;
     [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
 }
+
+// RS14-start
+/// <summary>
+/// Raised to enable or disable active movement energy drain for this mech.
+/// </summary>
+[ByRefEvent]
+public readonly record struct MechMovementDrainToggleEvent(bool Enabled);
+// RS14-end

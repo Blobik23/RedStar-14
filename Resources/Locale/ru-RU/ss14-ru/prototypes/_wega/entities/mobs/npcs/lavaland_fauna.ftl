@@ -1,0 +1,12 @@
+ent-MobAncientGoliath = древний голиаф
+    .desc = Очень древнее существо, которое существовало с незапамятных времен благодаря своей способности оставаться молодым.
+ent-MobLegionLavaland = { ent-MobLegion }
+    .desc = { ent-MobLegion.desc }
+ent-MobLegionDwarf = { ent-MobLegion }
+    .desc = { ent-MobLegion.desc }
+ent-MobMarrowWeaverLavaland = костномозговой ткач
+    .desc = Отвратительный гигантский паук с сочащимся из жвал ядом и хитином фиолетового цвета.
+ent-MobFrostbiteWeaverLavaland = морозный костномозговой ткач
+    .desc = Отвратительный гигантский паук с сочащимся из жвал ядом и хитином голубого цвета.
+ent-MobClockworkDefender = механический рыцарь
+    .desc = Предатель-механический рыцарь, который выжил, несмотря на уничтожение его создателями.

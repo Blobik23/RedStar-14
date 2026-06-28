@@ -40,12 +40,26 @@
   abstract: true
   components:
   - type: MobMover
+  # RS14-start
+  - type: Vehicle
+    transferDamage: false
+    requiresHands: false # RS14: Pilot eligibility is controlled by Mech.pilotWhitelist.
+  - type: ContainerVehicle
+    containerId: mech-pilot-slot
+  # RS14-end
   - type: Mech
+    entrySuccessSound: /Audio/Effects/nominal.ogg # RS14
+    brokenSound: /Audio/Effects/critdestr.ogg # RS14
     pilotBlacklist: # Goobstation Change
       components:
       - Zombie
       - ZombieBlob
-  - type: MechAir
+  # RS14-start
+  - type: MechLock
+  # RS14-end
+  # RS14-start
+  - type: MechCabinAir
+  # RS14-end
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
@@ -133,8 +147,15 @@
     containers:
       mech-pilot-slot: !type:ContainerSlot
       mech-equipment-container: !type:Container
+      # RS14
+      mech-passive-module-container: !type:Container
       mech-battery-slot: !type:ContainerSlot
       paper_label: !type:ContainerSlot # Goobstation
+  # RS14-start
+  - type: MechEquipmentCharger
+    slotId: mech-equipment-container
+    chargeRate: 30 # RS14-value: 0.5 per tick -> 30 joules per second
+  # RS14-end
   - type: Damageable
     damageContainer: Silicon # Goobstation
     damageModifierSet: LightArmor # Goobstation
@@ -218,6 +239,19 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: RipleyHarness
+    assemblyId: Ripley
+    partPrototypes:
+    - RipleyLArm
+    - RipleyRArm
+    - RipleyLLeg
+    - RipleyRLeg
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -264,11 +298,25 @@
     baseState: honker
     openState: honker-open
     brokenState: honker-broken
+    brokenSound: /Audio/Effects/sadtrombone.ogg # RS14
     mechToPilotDamageMultiplier: 0.5
     airtight: true # Goobstation - Space Honk is real.
     pilotWhitelist:
       components:
       - HumanoidAppearance
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: HonkerHarness
+    assemblyId: Honker
+    partPrototypes:
+    - HonkerLArm
+    - HonkerRArm
+    - HonkerLLeg
+    - HonkerRLeg
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
 
 - type: entity
   parent: MechHonker
@@ -306,6 +354,19 @@
     pilotWhitelist:
       tags:
       - Hamster
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: HamtrHarness
+    assemblyId: Hamtr
+    partPrototypes:
+    - HamtrLArm
+    - HamtrRArm
+    - HamtrLLeg
+    - HamtrRLeg
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
   - type: MeleeWeapon
     hidden: true
     attackRate: 0.8
@@ -369,6 +430,18 @@
     pilotWhitelist:
       tags:
       - VimPilot
+  # RS14-start
+  - type: PartDisassembly
+    assemblyPrototype: VimHarness
+    assemblyId: Vim
+    partPrototypes:
+    - ClothingHeadHelmetEVA
+    - LeftLegBorg
+    - RightLegBorg
+  - type: Construction
+    graph: MechDisassemble
+    node: start
+  # RS14-end
   - type: MeleeWeapon
     hidden: true
     attackRate: 0.8

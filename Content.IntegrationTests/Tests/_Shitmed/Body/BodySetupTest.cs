@@ -55,6 +55,15 @@ public sealed class BodySetupTest
         "Skeleton",
     };
 
+    /// <summary>
+    /// A list of entity prototypes that are ignored by AllMobsCanDie.
+    /// </summary>
+    private readonly HashSet<string> _ignoredDeathTestPrototypes = new()
+    {
+        // RS14: Lavaland humanoid miniboss with armor/loadout and custom boss logic.
+        "MobBloodDrunkMiner",
+    };
+
     // This test is kinda useless for us since the only place where we use InnateToolComponent is fuckin behonkers lmao.
     /*[Test]
     public async Task InnateToolTest()
@@ -364,7 +373,7 @@ public sealed class BodySetupTest
             foreach (var entityProto in entityPrototypes)
             {
                 // Skip any specifically ignored prototypes if needed
-                if (_ignoredPrototypes.Contains(entityProto.ID))
+                if (_ignoredPrototypes.Contains(entityProto.ID) || _ignoredDeathTestPrototypes.Contains(entityProto.ID))
                     continue;
 
                 var entity = entMan.Spawn(entityProto.ID);

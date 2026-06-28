@@ -751,7 +751,7 @@
     - state: icon-base-top-jumpsuit
       color: "#3e3e48"
     - state: icon-decor-department
-      color: "#2d4c5e"
+      color: "#9d0f0f"
     - state: icon-decor-department-head
       color: "#aeb7bd"
     - state: icon-decor-epaulets
@@ -764,7 +764,7 @@
       - state: inhand-left-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-left-decor-department
-        color: "#2d4c5e"
+        color: "#9d0f0f"
       - state: inhand-left-decor-department-head
         color: "#aeb7bd"
       - state: inhand-left-decor-epaulets
@@ -775,7 +775,7 @@
       - state: inhand-right-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-right-decor-department
-        color: "#2d4c5e"
+        color: "#9d0f0f"
       - state: inhand-right-decor-department-head
         color: "#aeb7bd"
       - state: inhand-right-decor-epaulets
@@ -789,7 +789,7 @@
       - state: equipped-base-top-jumpsuit-tac
         color: "#3e3e48"
       - state: equipped-decor-department
-        color: "#2d4c5e"
+        color: "#9d0f0f"
       - state: equipped-decor-department-head
         color: "#aeb7bd"
       - state: equipped-decor-epaulets

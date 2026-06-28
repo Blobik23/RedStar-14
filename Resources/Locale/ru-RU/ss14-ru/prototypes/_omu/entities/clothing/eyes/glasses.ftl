@@ -1,4 +1,4 @@
-ent-ClothingEyesGlassesMedChem = медико-химические очки
-    .desc = Очки, способные сканировать химический состав раствора, со встроенным медицинским ИЛС.
-ent-ClothingEyesGlassesMedChemFlash = солнцезащитные медико-химические очки
-    .desc = Солнцезащитные очки с медицинским ИЛС и анализатором растворов.
+ent-ClothingEyesGlassesMedChem = medichem goggles
+    .desc = Goggles that can scan the chemical composition of a solution, with an integrated medical hud.
+ent-ClothingEyesGlassesMedChemFlash = medichem glasses
+    .desc = Sunglasses with a medical hud and solution analyzer.

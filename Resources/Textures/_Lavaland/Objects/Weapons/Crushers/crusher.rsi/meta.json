@@ -58,6 +58,9 @@
       "name": "upgrade-ice-frost"
     },
     {
+      "name": "upgrade-poison"
+    },
+    {
       "name": "upgrade-sharpness",
       "delays": [
         [

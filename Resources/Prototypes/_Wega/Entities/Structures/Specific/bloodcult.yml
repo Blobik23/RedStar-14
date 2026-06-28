@@ -1,0 +1,24 @@
+- type: entity
+  id: BloodCultStructurePylon
+  parent: BaseStructure
+  name: pylon
+  description: A mysterious stone structure shaped like a watching face.
+  components:
+  - type: Sprite
+    sprite: _Wega/Lavaland/Structures/Specific/bloodcult_structures.rsi
+    state: pylon
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  id: BloodRuneRitualDimensionalRending
+  parent: BaseStructure
+  name: ritual rune
+  description: A vast, inert ritual marking.
+  components:
+  - type: Sprite
+    drawdepth: HighFloorObjects
+    sprite: _Wega/Lavaland/Structures/Specific/bloodcult_structures_large.rsi
+    state: rune_large
+  - type: Physics
+    canCollide: false

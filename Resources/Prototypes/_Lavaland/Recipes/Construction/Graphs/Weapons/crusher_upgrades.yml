@@ -37,5 +37,8 @@
       - material: WatcherIceWing
         amount: 5
         doAfter: 4
+      # RS14: The Wega fauna drop supplements the existing watcher-wing recipe.
+      - material: FrostbiteWeaverFrostGland
+        amount: 1
   - node: crystal
     entity: CrusherUpgradeBladeIceFrost

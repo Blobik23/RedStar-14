@@ -7,11 +7,15 @@
 
 - type: constructionGraph
   id: RipleyMKII
+  start: start # RS14
   graph:
   - node: start
     edges:
     - to: ripleymkii
       steps:
+      - assemblyId: RipleyMKII
+        guideString: mech-construction-guide-string
+
       - tool: Anchoring
         doAfter: 1
         completed:
@@ -111,15 +115,6 @@
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
           data: 17
-
-      - tag: MechAirTank
-        name: construction-graph-tag-exosuit-air-tank
-        icon:
-          sprite: Objects/Specific/Mech/mecha_equipment.rsi
-          state: mecha_air_tank
-
-      - tool: Anchoring
-        doAfter: 1
 
       - material: Plasteel
         amount: 10

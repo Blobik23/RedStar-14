@@ -1,0 +1,25 @@
+- type: entity
+  id: StatueAshDrake
+  parent: BaseStructure
+  name: statue of a drake
+  description: A towering basalt sculpture of a proud drake.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Wega/Lavaland/Structures/Decoration/statues.rsi
+    state: drake
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+
+- type: entity
+  id: StatueAshDrakeFalling
+  parent: BaseStructure
+  name: broken statue of a drake
+  description: A cracked and partially collapsed basalt drake statue.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Wega/Lavaland/Structures/Decoration/statues.rsi
+    state: drake_falling
+    drawdepth: Mobs
+    offset: "0.0,0.5"

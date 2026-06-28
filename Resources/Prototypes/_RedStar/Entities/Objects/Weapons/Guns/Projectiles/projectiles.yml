@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 RedStar Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BulletAdvPlasmaCutter
+  name: advanced cutter bolt
+  parent: BulletPlasmaCutter
+  description: Now that's bad. Get out of the way.
+  components:
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 25
+  - type: TimedDespawn
+    lifetime: 1.5

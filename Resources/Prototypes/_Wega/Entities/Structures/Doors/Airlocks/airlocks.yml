@@ -1,0 +1,7 @@
+- type: entity
+  id: AirlockBloodCult
+  parent: Airlock
+  suffix: Cult
+  components:
+  - type: Sprite
+    sprite: _Wega/Lavaland/Structures/Doors/bloodcult.rsi

@@ -1,0 +1,17 @@
+- type: stack
+  id: MarrowWeaverPoisonFang
+  name: stack-marrow-weaver-poison-fang
+  icon:
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: fang
+  spawn: MaterialMarrowWeaverPoisonFang1
+  maxCount: 10
+
+- type: stack
+  id: FrostbiteWeaverFrostGland
+  name: stack-frostbite-weaver-frost-gland
+  icon:
+    sprite: _Wega/Objects/Specific/Lavaland/trophies.rsi
+    state: ice_gland
+  spawn: MaterialFrostbiteWeaverFrostGland1
+  maxCount: 10

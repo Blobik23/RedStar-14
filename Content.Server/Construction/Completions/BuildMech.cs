@@ -52,6 +52,7 @@ public sealed partial class BuildMech : IGraphAction
         if (container.ContainedEntities.Count != 1)
         {
             Logger.Warning($"Mech construct entity {uid} did not have exactly one item in the specified '{Container}' container! Aborting build mech action.");
+            return; // RS14
         }
 
         var cell = container.ContainedEntities[0];
@@ -70,7 +71,6 @@ public sealed partial class BuildMech : IGraphAction
         if (entityManager.TryGetComponent<MechComponent>(mech, out var mechComp) && mechComp.BatterySlot.ContainedEntity == null)
         {
             mechSys.InsertBattery(mech, cell, mechComp, batteryComponent);
-            containerSystem.Insert(cell, mechComp.BatterySlot);
         }
 
         var entChangeEv = new ConstructionChangeEntityEvent(mech, uid);
