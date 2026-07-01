@@ -15,11 +15,7 @@
       "directions": 4
     },
     {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
+      "name": "equipped-NECK-vox",
       "directions": 4
     }
   ]
